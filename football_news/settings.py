@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     "nathanael-leander-footballnews.pbp.cs.ui.ac.id",
 ]
 
+CSRF_TRUSTED_ORIGINS = ["https://nathanael-leander-footballnews.pbp.cs.ui.ac.id"]
 
 # Application definition
 
@@ -66,7 +67,7 @@ ROOT_URLCONF = "football_news.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -132,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Jakarta"
 
 USE_I18N = True
 
