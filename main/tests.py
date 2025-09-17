@@ -138,9 +138,15 @@ class FootballNewsFunctionalTest(LiveServerTestCase):
         # Test create news functionality (requires login)
         self.login_user()
 
-        # Go to create news page
+        wait = WebDriverWait(self.browser, 120)
+        wait.until(EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "Add News")))
+
+        # Click "Add News" button
         add_button = self.browser.find_element(By.PARTIAL_LINK_TEXT, "Add News")
         add_button.click()
+
+        wait = WebDriverWait(self.browser, 120)
+        wait.until(EC.presence_of_element_located((By.NAME, "title")))
 
         # Fill form
         title_input = self.browser.find_element(By.NAME, "title")
